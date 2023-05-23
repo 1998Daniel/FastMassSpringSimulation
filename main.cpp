@@ -4,6 +4,10 @@
 #include <Eigen/Eigen>
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 
 int main()
 {
@@ -51,7 +55,8 @@ int main()
 	// Swap the back buffer with the front buffer
 	glfwSwapBuffers(window);
 
-
+	//test glm 
+	glm::mat4 i = glm::mat4(1);
 
 	// Main while loop
 	while (!glfwWindowShouldClose(window))

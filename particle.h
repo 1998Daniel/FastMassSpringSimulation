@@ -4,8 +4,8 @@
 
 class Particle{
 private:
-	VectorXf position;
-	VectorXf velocity;
+	VectorXf m_position;
+	VectorXf m_velocity;
 
 
 public:
