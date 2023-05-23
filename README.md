@@ -18,4 +18,6 @@ glfw3.lib
 
 opengl32.lib
 
+Download Eigen zip file, extract it and rename it eigen. Add it to \Libraries\include
 
+Go to project properties -> Configuration Properties -> C/C++ -> Additional Include Directories -> Add .\Libraries\include\eigen
