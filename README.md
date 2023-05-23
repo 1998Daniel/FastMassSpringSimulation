@@ -2,7 +2,7 @@
 
 This project will implement the paper "Fast-Simulation of Mass-Spring Systems" by Liu, et al. Work in progress. 
 
-# Dependencies: 
+# Dependencies
 GLFW (version 3.3.2), GLAD (CORE profile, version 3.3), Visual Studio 2022, Eigen (version 3.4.0)
 
 # Build Instructions
