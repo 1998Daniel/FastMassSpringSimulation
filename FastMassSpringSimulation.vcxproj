@@ -161,6 +161,7 @@
     <ClInclude Include="particle.h" />
     <ClInclude Include="renderer.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="solver.h" />
     <ClInclude Include="spring.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
