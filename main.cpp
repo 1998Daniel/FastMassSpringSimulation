@@ -62,6 +62,8 @@ int main()
 	glm::mat4 i = glm::mat4(1);
 
 	ClothMesh* cloth = new ClothMesh(100);
+	cloth->BuildMesh();
+
 	Shader* shader = new Shader("./basic.vert", "./basic.frag");
 
 	// Main while loop

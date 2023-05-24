@@ -17,7 +17,7 @@ private:
 	int m_num_particles;
 	std::vector<glm::vec3> m_positions;
 	std::vector<glm::vec3> m_normals;
-	std::vector<glm::vec3> m_tex_coords;
+	std::vector<glm::vec2> m_tex_coords;
 	std::vector<glm::ivec3> m_indices;
 
 public:

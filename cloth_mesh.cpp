@@ -61,9 +61,17 @@ void ClothMesh::UpdateNormalVectors()
 void ClothMesh::BuildMesh()
 {
 	InitPositions();
+	SetPositionsVBO(&m_positions[0], m_positions.size() * sizeof(float) * 3);
+
 	InitNormals();
+	SetNormalsVBO(&m_normals[0], m_positions.size() * sizeof(float) * 3);
+
 	InitTexCoords();
+	SetTextureCoordinatesVBO(&m_tex_coords[0], m_tex_coords.size() * sizeof(float) * 2);
+
 	InitIndices();
+	SetIndicesEBO(&m_indices[0], m_indices.size() * sizeof(int) * 3);
+
 }
 
 void ClothMesh::InitPositions()
@@ -87,6 +95,17 @@ void ClothMesh::InitNormals()
 void ClothMesh::InitTexCoords()
 {
 	//TODO
+	//TODO
+	// TODO UPDATE TO REAL TEXTURE COORDINATES
+	//TODO
+	//TODO 
+	//Dummy Texture Coordinates for now
+
+	for (int i = 0; i < m_num_particles; i++) {
+		for (int j = 0; j < m_num_particles; j++) {
+			m_tex_coords.push_back(glm::vec2(0.0f, 0.0f));
+		}
+	}
 }
 
 void ClothMesh::InitIndices()
