@@ -13,7 +13,6 @@ private:
 
 public:
 	MassSpringSystem(int num_particles);
-	void DrawMassSpringSystem();
 	void AddPositionVector();
 	void AddVelocityVector();
 
