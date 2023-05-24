@@ -8,6 +8,9 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "core.h"
+#include "cloth_mesh.h"
+#include "shader.h"
 
 int main()
 {
@@ -57,6 +60,9 @@ int main()
 
 	//test glm 
 	glm::mat4 i = glm::mat4(1);
+
+	ClothMesh* cloth = new ClothMesh(100);
+	Shader* shader = new Shader("./basic.vert", "./basic.frag");
 
 	// Main while loop
 	while (!glfwWindowShouldClose(window))
