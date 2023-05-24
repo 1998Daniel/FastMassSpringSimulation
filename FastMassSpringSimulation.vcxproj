@@ -151,11 +151,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cloth_mesh.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mass_spring_system.cpp" />
+    <ClCompile Include="particle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cloth_mesh.h" />
     <ClInclude Include="core.h" />
     <ClInclude Include="mass_spring_system.h" />
     <ClInclude Include="particle.h" />

@@ -10,6 +10,3 @@ m_gravity(::GRAVITY), m_h(::h), m_damping_factor(::DAMPING_FACTOR)
 
 
 }
-
-void MassSpringSystem::DrawMassSpringSystem() {}
-

@@ -1,7 +1,10 @@
 #pragma once
 #include "core.h"
+
 class MassSpringSystem {
 private:
+
+	//typedef Eigen::VectorXf VectorXf;
 	int m_num_particles; //nxn square lattice
 	float m_h; //time step "h" in literature
 	float m_h_squared;//h^2

@@ -9,14 +9,24 @@ This header contains aliases for easier to read code.
 #include "Eigen/Eigen"
 #include "Eigen/Sparse"
 #include <utility>
-#include "particle.h"
+
+//ALIASES
 
 typedef Eigen::VectorXf VectorXf;
-typedef std::pair<Particle, Particle> Edge;
+
+//SIMULATION CONSTANTS
 
 const float GRAVITY = 9.8f;
 const float h = .1f/.30f;
 const float DAMPING_FACTOR = 0.99f;
+
+//MISCELLANOUS
+
+const int VBO_SIZE = 3;
+
+const int POSITIONS_VBO_INDEX = 0;
+const int NORMALS_VBO_INDEX = 1;
+const int TEX_COORDS_VBO_INDEX = 2;
 
 enum IntegrationMethod {
 	ExplicitEuler,

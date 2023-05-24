@@ -24,6 +24,12 @@
     <ClCompile Include="mass_spring_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cloth_mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="particle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="particle.h">
@@ -45,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="solver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cloth_mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
