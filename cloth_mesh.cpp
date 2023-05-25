@@ -28,26 +28,25 @@ ClothMesh::ClothMesh(int num_particles) : m_num_particles(num_particles)
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
 }
 
-void ClothMesh::SetPositionsVBO(void* buffer, size_t size)
+void ClothMesh::SetPositionsVBO(float* buffer, size_t size)
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo[::POSITIONS_VBO_INDEX]);
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
-
 }
 
-void ClothMesh::SetNormalsVBO(void* buffer, size_t size)
+void ClothMesh::SetNormalsVBO(float* buffer, size_t size)
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo[::NORMALS_VBO_INDEX]);
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 }
 
-void ClothMesh::SetTextureCoordinatesVBO(void* buffer, size_t size)
+void ClothMesh::SetTextureCoordinatesVBO(float* buffer, size_t size)
 {
 	glBindBuffer(GL_ARRAY_BUFFER, m_vbo[::TEX_COORDS_VBO_INDEX]);
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 }
 
-void ClothMesh::SetIndicesEBO(void* buffer, size_t size)
+void ClothMesh::SetIndicesEBO(unsigned int* buffer, size_t size)
 {
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
@@ -61,24 +60,34 @@ void ClothMesh::UpdateNormalVectors()
 void ClothMesh::BuildMesh()
 {
 	InitPositions();
-	SetPositionsVBO(&m_positions[0], m_positions.size() * sizeof(float) * 3);
+	SetPositionsVBO(&m_positions[0][0], m_positions.size() * sizeof(float) * 3);
 
 	InitNormals();
-	SetNormalsVBO(&m_normals[0], m_positions.size() * sizeof(float) * 3);
+	SetNormalsVBO(&m_normals[0][0], m_positions.size() * sizeof(float) * 3);
 
 	InitTexCoords();
-	SetTextureCoordinatesVBO(&m_tex_coords[0], m_tex_coords.size() * sizeof(float) * 2);
+	SetTextureCoordinatesVBO(&m_tex_coords[0][0], m_tex_coords.size() * sizeof(float) * 2);
 
 	InitIndices();
-	SetIndicesEBO(&m_indices[0], m_indices.size() * sizeof(int) * 3);
+	SetIndicesEBO(&m_indices[0][0], m_indices.size() * sizeof(unsigned int) * 3);
 
+}
+
+int ClothMesh::GetIndicesCount()
+{
+	return m_indices.size() * 3;
+}
+
+GLuint& ClothMesh::GetVAO()
+{
+	return m_vao;
 }
 
 void ClothMesh::InitPositions()
 {
 	for (int i = 0; i < m_num_particles; i++) {
 		for (int j = 0; j < m_num_particles; j++) {
-			m_positions.push_back(glm::vec3(i * 10.f, j * 10.f, 0.0f));
+			m_positions.push_back(glm::vec3(i * 2.f, j * 2.f, 0.0f));
 		}
 	}
 }
