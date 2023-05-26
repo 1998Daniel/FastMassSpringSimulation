@@ -13,4 +13,5 @@ public:
 
 	Renderer(ClothMesh* cloth);
 	void Draw();
+	void InitModelViewProjection();
 };
