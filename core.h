@@ -27,6 +27,7 @@ const int VBO_SIZE = 3;
 const int POSITIONS_VBO_INDEX = 0;
 const int NORMALS_VBO_INDEX = 1;
 const int TEX_COORDS_VBO_INDEX = 2;
+const int EBO_INDEX = 3;
 
 enum IntegrationMethod {
 	ExplicitEuler,

@@ -6,10 +6,11 @@
 
 class Renderer {
 private:
+	Shader* m_shader;
+	ClothMesh* m_cloth;
 
 public:
-	static void Render(ClothMesh);
-	static void UpdateNormalVectors();
-	static void UpdatePositions();
-	static void Update();
+
+	Renderer(ClothMesh* cloth);
+	void Draw();
 };

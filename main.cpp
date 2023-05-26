@@ -11,6 +11,7 @@
 #include "core.h"
 #include "cloth_mesh.h"
 #include "shader.h"
+#include "renderer.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -38,52 +39,21 @@ int main()
         return -1;
     }
 
-    ClothMesh* cloth = new ClothMesh(10);
+    ClothMesh* cloth = new ClothMesh(20);
     cloth->BuildMesh();
 
-    Shader* shader = new Shader("./basic.vert", "./basic.frag");
-    shader->use();
-    glm::mat4 view = glm::mat4(1.0f);
-    glm::mat4 projection = glm::mat4(1.0f);
-    projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-    view = glm::translate(view, glm::vec3(0.0f, 0.0f, -100.0f));
-    shader->setMat4("projection", projection);
-    shader->setMat4("view", view);
-
-    glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(0));
-    shader->setMat4("model", model);
-
+    Renderer* renderer = new Renderer(cloth);
      //uncomment this call to draw in wireframe polygons.
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     while (!glfwWindowShouldClose(window))
     {
-        // input
-        // -----
         processInput(window);
-
-        // render
-        // ------
+    
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        shader->use(); 
-
-
-        glBindVertexArray(cloth->GetVAO());
-        glEnableVertexAttribArray(0);
-        glEnableVertexAttribArray(1);
-        glEnableVertexAttribArray(2);
-        glEnableVertexAttribArray(3);
-        glDrawElements(GL_TRIANGLES, cloth->GetIndicesCount(), GL_UNSIGNED_INT, 0);
-        glDisableVertexAttribArray(0);
-        glDisableVertexAttribArray(1);
-        glDisableVertexAttribArray(2);
-        glDisableVertexAttribArray(3);
-        glBindVertexArray(0);
-        glUseProgram(0);
-
+        renderer->Draw();
 
         glfwSwapBuffers(window);
         glfwPollEvents();

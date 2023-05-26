@@ -156,6 +156,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mass_spring_system.cpp" />
     <ClCompile Include="particle.cpp" />
+    <ClCompile Include="renderer.cpp" />
+    <ClCompile Include="solver.cpp" />
+    <ClCompile Include="spring.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cloth_mesh.h" />
